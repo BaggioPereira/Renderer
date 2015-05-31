@@ -242,5 +242,4 @@ public class Tracer : MonoBehaviour
         byte[] bytes = tex.EncodeToPNG();
         File.WriteAllBytes(Application.dataPath + "/../SavedImage.png", bytes);
     }
-
 }
