@@ -40,7 +40,7 @@ public class ColorTrace : MonoBehaviour {
     public Color TracePixel(Vector2 pos)
     {
         //create a ray at x,y
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(pos.x / GetComponent<Tracer>().resolution, pos.y / GetComponent<Tracer>().resolution, 0));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(pos.x, pos.y, 0));
 
         //call Trace to get a colour for the ray
         return Trace(ray.origin, ray.direction, 0);

@@ -38,7 +38,8 @@ public class LightTracing : MonoBehaviour {
             //runs a trace for the light and applies linear falloff
             Vector3 direction = (light.transform.position - pos).normalized;
             float temp = (light.range - Vector3.Distance(pos, light.transform.position)) / light.range * light.intensity;
-            return transparencyTrace(new Color(temp, temp, temp) * (1 - Quaternion.Angle(Quaternion.identity, Quaternion.FromToRotation(normal, direction)) / 90), pos, direction, Vector3.Distance(light.transform.position, pos));
+            return transparencyTrace(new Color(temp, temp, temp) * (1 - Quaternion.Angle(Quaternion.identity, Quaternion.FromToRotation(normal, direction)) / 90), 
+                pos, direction, Vector3.Distance(light.transform.position, pos));
         }
 
         //otherwise set to black
