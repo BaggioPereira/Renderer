@@ -17,16 +17,16 @@ public class LightTracing : MonoBehaviour {
     public Color TraceLight(Vector3 pos, Vector3 normal)
     {
         //set the light colour to the default ambient light
-        Color returnCol = RenderSettings.ambientLight;
+        Color returnLight = RenderSettings.ambientLight;
 
         //for each light, run a light trace
         foreach (Light light in lights)
         {
-            returnCol += LightTrace(light, pos, normal);
+            returnLight += LightTrace(light, pos, normal);
         }
 
         //returnt eh light colour
-        return returnCol;
+        return returnLight;
     }
 
     //trace the lighting for one light
@@ -51,7 +51,6 @@ public class LightTracing : MonoBehaviour {
     {
         Color tempCol = col;
         RaycastHit[] hits;
-
 
         //does a raycast hit for all
         hits = Physics.RaycastAll(pos, dir, dist);

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 public class Tracer : MonoBehaviour 
 {
@@ -233,5 +234,13 @@ public class Tracer : MonoBehaviour
 
         //apply the texture tot he screen
         outTex.Apply();
+        SaveTexture(outTex);
     }
+
+    void SaveTexture(Texture2D tex)
+    {
+        byte[] bytes = tex.EncodeToPNG();
+        File.WriteAllBytes(Application.dataPath + "/../SavedImage.png", bytes);
+    }
+
 }
